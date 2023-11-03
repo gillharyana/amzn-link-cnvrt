@@ -1,4 +1,4 @@
-# (c) @SpidyBoYz | Mr. Avishkar
+# (c) @MovieGrade | Jordan Gill
 
 import asyncio
 import datetime
