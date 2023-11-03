@@ -7,11 +7,11 @@
         "bot",
         "Amazon Bot",
         "Telegram Bot",
-        "AvishkarBots"
+        "MovieGrade"
     ],
-    "website": "https://t.me/AvishkarBots",
-    "repository": "https://github.com/SpidyBoYz/amazon-bot-tg",
-    "success_url": "https://github.com/SpidyBoYz",
+    "website": "https://t.me/MovieGrade",
+    "repository": "https://github.com/jordngill/amzn-link-cnvrt",
+    "success_url": "https://github.com/jordngill",
     "env": {
         "BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
