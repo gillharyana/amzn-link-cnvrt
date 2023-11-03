@@ -1,4 +1,4 @@
-# (c) @SpidyBoYz | Mr. Avishkar
+# (c) @MovieGrade | Jordan Gill
 
 import os
 
@@ -6,7 +6,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 API_ID = int(os.environ.get("API_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
-AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "2128674349").split())
+AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1166670205").split())
 DB_URL = os.environ.get("DB_URL", "")
 DB_NAME = os.environ.get("DB_NAME", "Amazon-Bot")
 AMAZON_TLD = os.environ.get("AMAZON_TLD", "in")
