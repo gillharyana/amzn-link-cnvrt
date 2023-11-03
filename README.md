@@ -12,7 +12,7 @@ A simple bot to generate your Amazon Affiliate links.
  - `BOT_TOKEN` - Get from [@BotFather](https://t.me/BotFather)
  - `API_ID` - Get it from [telegram.org](https://my.telegram.org/auth)
  - `API_HASH` - Get it from [telegram.org](https://my.telegram.org/auth)
- - `AUTH_USERS` - Authorised user's ID to use [Admin Commands](https://github.com/SpidyBoYz/amazon-bot-tg#admin-commands) {Split 💔 with a space}.
+ - `AUTH_USERS` - Authorised user's ID to use [Admin Commands](https://github.com/jordngill/amzn-link-cnvrt#admin-commands) {Split 💔 with a space}.
  - `DB_URL` - MongoDB Database URI get it from [mongodb.com](https://mongodb.com)
 	- This for Saving UserIDs and Amazon Tags.
 
@@ -43,15 +43,15 @@ stats - Total User Number in Database
 ### Easiest Heroku Deploy 🤭
 
 <p align="center">
-    <a href="https://heroku.com/deploy?template=https://github.com/SpidyBoYz/amazon-bot-tg">
+    <a href="https://heroku.com/deploy?template=https://github.com/jordngill/amzn-link-cnvrt">
     <img src="assets/herokudeploy.svg" alt="herokudeploy-01" border="0" height="90" width="285"></a>
 </p>
 
 ### Host Locally 🤕
 
 ```shell
-git clone https://github.com/SpidyBoYz/amazon-bot-tg
-cd amazon-bot-tg
+git clone https://github.com/jordngill/amzn-link-cnvrt
+cd amzn-link-cnvrt
 pip3 install -r requirements.txt
 # EDIT config.py values appropriately
 python3 main.py
@@ -59,13 +59,13 @@ python3 main.py
 
 ## Support Group:
 
-<div style="display: flex; justify-content: space-between;"><a href="https://t.me/AvishkarBots"><img src="https://img.shields.io/badge/Telegram-Updates%20Channel-blue.svg?logo=telegram"></a><a href="https://t.me/AvishkarChat"><img src="https://img.shields.io/badge/Telegram-Support%20Group-blue.svg?logo=telegram"></a></div>
+<div style="display: flex; justify-content: space-between;"><a href="https://t.me/MovieGrade"><img src="https://img.shields.io/badge/Telegram-Updates%20Channel-blue.svg?logo=telegram"></a><a href="https://t.me/Gill_Jordan"><img src="https://img.shields.io/badge/Telegram-Support%20Group-blue.svg?logo=telegram"></a></div>
 
 ## Found a Bug 🐛
 
 ```Feel free to create a pull or create a issue now and describe your issue freely.```
 
 ## Credits
- - [@SpidyBoYz](https://github.com/SpidyBoYz)
+ - [@Gill_Jordan](https://github.com/jordngill)
 
 <a href="https://pyrogram.org"><img src="https://i.ibb.co/SVLD5k8/Document-1222546317.png" alt="pyrogram" border="0"></a>
