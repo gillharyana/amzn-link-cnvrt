@@ -9,7 +9,7 @@
         "Telegram Bot",
         "MovieGrade"
     ],
-    "website": "https://t.me/MovieGrade",
+    "website": "https://t.me/AmznUser",
     "repository": "https://github.com/jordngill/amzn-link-cnvrt",
     "success_url": "https://github.com/jordngill",
     "env": {
