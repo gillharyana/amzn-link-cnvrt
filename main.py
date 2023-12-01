@@ -1,4 +1,4 @@
-# (c) @MovieGrade | JorDan Gill
+# (c) @AmznUser | JorDan Gill
 
 import asyncio
 import os
@@ -76,9 +76,9 @@ async def startprivate(client: Client, message: Message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/Ecommerce_Shop"),
+                InlineKeyboardButton("CHANNEL", url="https://t.me/AmznUser"),
                 InlineKeyboardButton(
-                    "SUPPORT GROUP", url="https://t.me/Ecommerce_Shop"
+                    "SUPPORT GROUP", url="https://t.me/AmznUser"
                 ),
             ]
         ]
@@ -126,7 +126,7 @@ async def features(client: Client, message: Message):
 💁‍♀️ Hit 👉 /help To Get Help.
 💻 Hit 👉 /cmd to know about all commands.
 
-**Made with 💖 by @MovieGrade**"""
+**Made with 💖 by @AmznUser**"""
 
     return await message.reply_text(welcomed, quote=True)
  
@@ -153,14 +153,14 @@ Example:
 (See Example.👇)
 
 Example:
-`/add_footer_channel @MovieGrade`
+`/add_footer_channel @AmznUser`
 
 🤘 **Hit** 👉 /features __To Know More Features Of This Bot.__
 🔗 **Hit** 👉 /set_tag __To Know More About How To Link AMAZON affiliate tag To This Bot.__
 💁‍♀️ **Hit** 👉 /help __To Get Help.__
 💻 **Hit** 👉 /cmd __To know about all commands.__
 
-- **Message @Gill_Jordan For More Help -**"""
+- **Message @AmznUser For More Help -**"""
 
     await message.reply_text(help, quote=True)
 
@@ -193,7 +193,7 @@ Example: /add_forward_channel -100987654322
 Example: /remove_forward_channel -100987654322
 
 - /add_footer_channel - To add custom Footer Channel Username
-Example: /add_footer_channel @MovieGrade
+Example: /add_footer_channel @AmznUser
 
 - /remove_footer_channel - To remove custom Footer Channel Username
 
@@ -205,7 +205,7 @@ Example: /add_footer_channel @MovieGrade
 
 - /report - To report any Issues or bugs to Admins
 
-- Message @Gill_Jordan For More Help -"""
+- Message @AmznUser For More Help -"""
 
     await message.reply_text(cmd, quote=True)
 
@@ -267,7 +267,7 @@ async def tagauthuser(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the User ID of the user along with the command to whom you wan't to Authorize for using tags.\n\n"
-            "\n**Eg:** `/tagauthuser 1166670205`\n\n",
+            "\n**Eg:** `/tagauthuser 1166666205`\n\n",
             quote=True
         )
     else:
@@ -289,7 +289,7 @@ async def tagUnAuthUser(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the User ID of the user along with the command to whom you wan't to Unauthorize for using tags.\n\n"
-            "\n**Eg:** `/tagUnAuthUser 1166670205`\n\n",
+            "\n**Eg:** `/tagUnAuthUser 1166666205`\n\n",
             quote=True
         )
     else:
@@ -311,7 +311,7 @@ async def forwardauthuser(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the User ID of the user along with the command to whom you wan't to Authorize for forwarding.\n\n"
-            "\n**Eg:** `/forwardauthuser 1166670205`\n\n",
+            "\n**Eg:** `/forwardauthuser 1166666205`\n\n",
             quote=True
         )
     else:
@@ -333,7 +333,7 @@ async def forwardUnAuthuser(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the User ID of the user along with the command to whom you wan't to Unauthorize from forwarding.\n\n"
-            "\n**Eg:** `/forwardUnAuthuser 1166670205`\n\n",
+            "\n**Eg:** `/forwardUnAuthuser 1166666205`\n\n",
             quote=True
         )
     else:
@@ -433,7 +433,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
         await message.reply(
             "📞__ Kindly send the Channel ID or Channel User from where to copy messages along with the command\n\n"
             "Add the bot to the channel and send /id to get the channel ID.\n"
-            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname MovieGrade -> -10087654321`\n\n",
+            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUser -> -10087654321`\n\n",
             quote=True
         )
     else:
@@ -527,7 +527,7 @@ async def addFooterChannel(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the Channel Username along with the command\n\n"
-            "\n**Eg:** `/add_footer_channel MovieGrade`",
+            "\n**Eg:** `/add_footer_channel AmznUser`",
             quote=True
         )
     else:
@@ -556,7 +556,7 @@ Example:
 /connect +84444444444
 
 
-🔊 Stay informed with the latest updates by subscribing to our channel: @MovieGrade""",
+🔊 Stay informed with the latest updates by subscribing to our channel: @AmznUser""",
             quote=True
         )
     else:
@@ -714,7 +714,7 @@ async def report(client: Client, message: Message):
             logging.info(
                 f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     await message.reply(
-        f"**Here is my maker's Telegram contact** : @Gill_Jordan\n\n"
+        f"**Here is my maker's Telegram contact** : @AmznUser\n\n"
         f"• __Report a bug...__\n"
         f"• __Suggest Something...__\n"
         f"• __Share Bot Idea...__\n"
@@ -825,7 +825,7 @@ async def amazon_links(bot: Client, message: Message):
     if BOT_TYPE_PUBLIC is False:
         if db.get_forwardauthuser(chat_id) != "authorised":
             return await message.reply(
-                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @Gill_JorDan To Get Access..😊**", 
+                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @AmznUser To Get Access..😊**", 
                 quote=True
             )
 
@@ -938,7 +938,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
                     )
 
             if error == 0:
-                footer_channel = db.get_custom_footer_channel(admin_id) or 'AvishkarBots'
+                footer_channel = db.get_custom_footer_channel(admin_id) or 'AmznUser'
                 oldMessage += f"\n\nShared by @{footer_channel.lstrip('@')}"
 
                 if success > 0:
