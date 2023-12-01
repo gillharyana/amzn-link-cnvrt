@@ -59,13 +59,13 @@ python3 main.py
 
 ## Support Group:
 
-<div style="display: flex; justify-content: space-between;"><a href="https://t.me/MovieGrade"><img src="https://img.shields.io/badge/Telegram-Updates%20Channel-blue.svg?logo=telegram"></a><a href="https://t.me/Gill_Jordan"><img src="https://img.shields.io/badge/Telegram-Support%20Group-blue.svg?logo=telegram"></a></div>
+<div style="display: flex; justify-content: space-between;"><a href="https://t.me/AmznUser"><img src="https://img.shields.io/badge/Telegram-Updates%20Channel-blue.svg?logo=telegram"></a><a href="https://t.me/AmznUser"><img src="https://img.shields.io/badge/Telegram-Support%20Group-blue.svg?logo=telegram"></a></div>
 
 ## Found a Bug 🐛
 
 ```Feel free to create a pull or create a issue now and describe your issue freely.```
 
 ## Credits
- - [@Gill_Jordan](https://github.com/jordngill)
+ - [@AmznUser](https://github.com/jordngill)
 
 <a href="https://pyrogram.org"><img src="https://i.ibb.co/SVLD5k8/Document-1222546317.png" alt="pyrogram" border="0"></a>
