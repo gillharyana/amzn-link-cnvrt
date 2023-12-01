@@ -1,4 +1,4 @@
-# (c) @MovieGrade | Jordan Gill
+# (c) @AmznUser | Jordan Gill
 
 import re
 
