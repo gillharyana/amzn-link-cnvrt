@@ -1,4 +1,4 @@
-# Telegram @ShadowYt77
+# @ShadowYt77 - Telegram
 
 import asyncio
 import os
@@ -511,14 +511,31 @@ async def removeCopyChannelFromDB(bot: Client, message: Message):
         )
     else:
         channelIds = message.command[1:]
+        print(channelIds)
         for channel in channelIds:
             savedchannel = db.get_all_copy_channel(message.from_user.id)
+            print(savedchannel)
             for i in savedchannel :
-                if str(i["id"]) == channel :
+                source = i['source']
+                source = source[0]
+                title = source['title']
+                source = source['id']
+                print(source)
+                if str(source) == channel :
+                    print("Pass")
                     db.remove_copy_channel(message.from_user.id, i)
-                    return await message.reply(f"Successfully Removed `{i['title']} ({channel})` from the Database for Amazon Links Forwarding.", quote=True)
+                    return await message.reply(f"Successfully Removed `{title} ({channel})` from the Database for Amazon Links Forwarding.", quote=True)
 
             return await message.reply(f"No such channel id `({channel})` in the Database for Amazon Links Forwarding.", quote=True)
+
+@Bot.on_message(filters.command("reset") & filters.private)
+async def reset(bot: Client, message: Message):
+    ok = db.reset_all(message.from_user.id)
+    if ok ==True:
+        return await message.reply("You All The Settings Is Reseted In Database")
+    else:
+        return await message.reply("No Database Found From Your Id")
+    
 
 @Bot.on_message(filters.command("add_footer_channel") & filters.private)
 async def addFooterChannel(bot: Client, message: Message):
@@ -874,6 +891,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.message.delete(True)
 
 async def new_message(client: Client, m: Message, admin_id: int):
+    print("In  Mew Message")
     if BOT_TYPE_PUBLIC is False:
         if db.get_forwardauthuser(admin_id) != "authorised":
             return
@@ -884,7 +902,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
         amazon = Amazon(amazon_tag=db.get_amazon_tag(admin_id) if tagAllowed else None)
     else:
         amazon = Amazon(amazon_tag=db.get_amazon_tag(admin_id))
-
+    print("Me here")
     status, msg = amazon.check_cookies()
     if not status:
         await Bot.send_message(
@@ -892,7 +910,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
             text=msg,
             parse_mode=ParseMode.MARKDOWN
         )
-
+    print("Reached So Far")
     for c in db.get_all_copy_channel(admin_id):
         if m.chat.id in [_['id'] for _ in c['source']]:
             if m.media:
@@ -911,7 +929,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
             duplicate = 0
             successLinks = []
             erroredLinks = []
-
+            print("OKKKKKKKKKKKKK")
             for link in links:
                 try:
                     if link not in successLinks:
@@ -994,6 +1012,7 @@ async def start_userbots():
     await Bot.start()
     print(f"@{(await Bot.get_me()).username} is successfully started.")
 
+    
     for user in db.get_all_logined_users():
         string_session = user["session_string"][-1]
 
@@ -1013,6 +1032,7 @@ async def start_userbots():
         try:
             await UserBot.start()
         except:
+            
             db.remove_string_session(user["id"], string_session)
         
             try:
