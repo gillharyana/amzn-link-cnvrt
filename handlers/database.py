@@ -1,4 +1,4 @@
-# (c) @AmznUser | Jordan Gill
+# @ShadowYt77 - Telegram
 
 import datetime
 from pymongo import MongoClient
@@ -130,6 +130,12 @@ class Database:
 
     def remove_copy_channel(self, user_id: int, channel):
         self.col.update_one({"id": int(user_id)}, {"$pull": {"copy_channel": channel}})
+    def reset_all(self, user_id: int):
+        work = self.col.find_one_and_delete({"id": int(user_id)})
+        if work:
+            return True
+        else:
+            return False
 
     def get_all_copy_channel(self, user_id: int):
         user = self.col.find_one({"id": int(user_id)})
