@@ -1,4 +1,4 @@
-# (c) @ | JorDan Gill
+# (c) @AmznUsers | Jordan Gill
 
 import asyncio
 import os
