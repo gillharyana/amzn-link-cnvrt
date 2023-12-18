@@ -1,4 +1,4 @@
-# (c) @AmznUsers | Jordan Gill
+# @ShadowYt77 - Telegram
 
 import asyncio
 import os
@@ -76,9 +76,9 @@ async def startprivate(client: Client, message: Message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AmznUsers"),
+                InlineKeyboardButton("CHANNEL", url="https://t.me/AmznUser"),
                 InlineKeyboardButton(
-                    "SUPPORT GROUP", url="https://t.me/AmznUsers"
+                    "SUPPORT GROUP", url="https://t.me/AmznUser"
                 ),
             ]
         ]
@@ -126,7 +126,7 @@ async def features(client: Client, message: Message):
 💁‍♀️ Hit 👉 /help To Get Help.
 💻 Hit 👉 /cmd to know about all commands.
 
-**Made with 💖 by @AmznUsers**"""
+**Made with 💖 by @AmznUser**"""
 
     return await message.reply_text(welcomed, quote=True)
  
@@ -153,14 +153,14 @@ Example:
 (See Example.👇)
 
 Example:
-`/add_footer_channel @AmznUsers`
+`/add_footer_channel @AmznUser`
 
 🤘 **Hit** 👉 /features __To Know More Features Of This Bot.__
 🔗 **Hit** 👉 /set_tag __To Know More About How To Link AMAZON affiliate tag To This Bot.__
 💁‍♀️ **Hit** 👉 /help __To Get Help.__
 💻 **Hit** 👉 /cmd __To know about all commands.__
 
-- **Message @AmznUsers For More Help -**"""
+- **Message @AmznUser For More Help -**"""
 
     await message.reply_text(help, quote=True)
 
@@ -193,7 +193,7 @@ Example: /add_forward_channel -100987654322
 Example: /remove_forward_channel -100987654322
 
 - /add_footer_channel - To add custom Footer Channel Username
-Example: /add_footer_channel @AmznUsers
+Example: /add_footer_channel @AmznUser
 
 - /remove_footer_channel - To remove custom Footer Channel Username
 
@@ -205,7 +205,7 @@ Example: /add_footer_channel @AmznUsers
 
 - /report - To report any Issues or bugs to Admins
 
-- Message @AmznUsers For More Help -"""
+- Message @AmznUser For More Help -"""
 
     await message.reply_text(cmd, quote=True)
 
@@ -375,13 +375,18 @@ async def addChannelToDB(bot: Client, message: Message):
             quote=True
         )
     else:
+        print(message.command[1])
+        try:
+            z = await bot.resolve_peer(peer_id= int(message.command[1]))
+        except Exception as e:
+            print("Resolve ___________>",e)
         try:
             channel = await bot.get_chat(int(message.command[1]))
         except:
             return await message.reply("Kindly add the bot to the channel with Admin Rights, before sending it to me.", quote=True)
 
-        if channel.type != enums.ChatType.CHANNEL:
-            return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
+        # if channel.type != enums.ChatType.CHANNEL:
+        #     return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
 
         if len(db.get_all_forward_channel(message.from_user.id)) == int(FORWARD_CHANNEL_NUMBER):
             return await message.reply(f"**Oops Max limit of adding forward channel is get exceeded.**\nSo first remove already added forward channel using /remove_autopost. \n\n Contact 👉 @AvishkarBots if you feels it bug.", quote=True)
@@ -433,7 +438,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
         await message.reply(
             "📞__ Kindly send the Channel ID or Channel User from where to copy messages along with the command\n\n"
             "Add the bot to the channel and send /id to get the channel ID.\n"
-            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUsers -> -10087654321`\n\n",
+            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUser -> -10087654321`\n\n",
             quote=True
         )
     else:
@@ -444,6 +449,9 @@ async def addCopyChannelToDB(bot: Client, message: Message):
             label = message.command[1]            
             forwardchannels = message.command[2].split(",")            
             autopostchannels = message.command[4].split(",")
+            print(label)
+            print(forwardchannels)
+            print(autopostchannels)
             
             fchannellist = []
             autochannellist = []
@@ -465,8 +473,12 @@ async def addCopyChannelToDB(bot: Client, message: Message):
 
                 
                 fchannellist.append({"id": channel.id, "title": channel.title, "type": channel.type.name})
-
+            
             for autochannel in autopostchannels:
+                try:
+                    autochannel = autochannel
+                except Exception as e:
+                    pass
                 try:
                     channel = await bot.get_chat(autochannel)
                 except:
@@ -481,9 +493,17 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                 #     return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
 
                 if channel.type == enums.ChatType.BOT:
+                    print(type(autochannel))
                     try:
+                        z = await client.resolve_peer(peer_id =autochannel)
+                        print(z)
+                    except Exception as e:
+                        print("peer resolve--->",e)
+                    
+                    try:                        
                         channel = await client.get_chat(autochannel)
-                    except:
+                    except Exception as e:
+                        print(e)
                         return await message.reply(f"Kindly start the bot ({autochannel}).", quote=True)
 
                 autochannellist.append({"id": channel.id, "title": channel.title, "type": channel.type.name})
@@ -542,7 +562,7 @@ async def addFooterChannel(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the Channel Username along with the command\n\n"
-            "\n**Eg:** `/add_footer_channel AmznUsers`",
+            "\n**Eg:** `/add_footer_channel AmznUser`",
             quote=True
         )
     else:
@@ -571,7 +591,7 @@ Example:
 /connect +84444444444
 
 
-🔊 Stay informed with the latest updates by subscribing to our channel: @AmznUsers""",
+🔊 Stay informed with the latest updates by subscribing to our channel: @AmznUser""",
             quote=True
         )
     else:
@@ -729,7 +749,7 @@ async def report(client: Client, message: Message):
             logging.info(
                 f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     await message.reply(
-        f"**Here is my maker's Telegram contact** : @AmznUsers\n\n"
+        f"**Here is my maker's Telegram contact** : @AmznUser\n\n"
         f"• __Report a bug...__\n"
         f"• __Suggest Something...__\n"
         f"• __Share Bot Idea...__\n"
@@ -809,7 +829,7 @@ async def amazon_links(bot: Client, message: Message):
             f"Found `{len(links)}` links.\n\n**📝 Files copy stats:**\n\n**Successfully:** `{success}/{len(links)}`\n**Errors:** `{error}/{len(links)}`\n**Replication:** `{duplicate}/{len(links)}`"
         )
 
-    footer_channel = db.get_custom_footer_channel(message.from_user.id) or 'AmznUsers'
+    footer_channel = db.get_custom_footer_channel(message.from_user.id) or 'AvishkarBots'
     oldMessage += f"\n\nShared by @{footer_channel.lstrip('@')}"
 
     stats = (
@@ -840,7 +860,7 @@ async def amazon_links(bot: Client, message: Message):
     if BOT_TYPE_PUBLIC is False:
         if db.get_forwardauthuser(chat_id) != "authorised":
             return await message.reply(
-                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @AmznUsers To Get Access..😊**", 
+                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @AmznUser To Get Access..😊**", 
                 quote=True
             )
 
