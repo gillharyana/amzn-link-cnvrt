@@ -1,4 +1,4 @@
-# (c) @AmznUsers | Jordan Gill
+# (c) @AmznUser | Jordan Gill
 
 import os
 import re
@@ -66,8 +66,10 @@ class Amazon:
 
     def generate_url(self, link):
         link = self.get_final_url(link)
+        print(link)
         if re.search(self.fullURLRegex, link) :
             newUrl = self.build_amazon_url(self.get_asin_from_full_url(link))
+            print(newUrl)
             return {"shortUrl": self.shortenURL(newUrl), "longUrl": newUrl}
 
     def shortenURL(self, url):
@@ -107,6 +109,8 @@ class Amazon:
             try:
                 response = requests.post("https://api-ssl.bitly.com/v4/shorten", headers=headers, json=body)
                 result = response.json()
+
+                print("Result of Bitly---------->",result)
 
                 if result.get("link"):
                     return result.get("link")
