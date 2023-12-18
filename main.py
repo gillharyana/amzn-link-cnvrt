@@ -76,9 +76,9 @@ async def startprivate(client: Client, message: Message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/AmznUser"),
+                InlineKeyboardButton("CHANNEL", url="https://t.me/AmznUsers"),
                 InlineKeyboardButton(
-                    "SUPPORT GROUP", url="https://t.me/AmznUser"
+                    "SUPPORT GROUP", url="https://t.me/AmznUsers"
                 ),
             ]
         ]
@@ -126,7 +126,7 @@ async def features(client: Client, message: Message):
 💁‍♀️ Hit 👉 /help To Get Help.
 💻 Hit 👉 /cmd to know about all commands.
 
-**Made with 💖 by @AmznUser**"""
+**Made with 💖 by @AmznUsers**"""
 
     return await message.reply_text(welcomed, quote=True)
  
@@ -153,14 +153,14 @@ Example:
 (See Example.👇)
 
 Example:
-`/add_footer_channel @AmznUser`
+`/add_footer_channel @AmznUsers`
 
 🤘 **Hit** 👉 /features __To Know More Features Of This Bot.__
 🔗 **Hit** 👉 /set_tag __To Know More About How To Link AMAZON affiliate tag To This Bot.__
 💁‍♀️ **Hit** 👉 /help __To Get Help.__
 💻 **Hit** 👉 /cmd __To know about all commands.__
 
-- **Message @AmznUser For More Help -**"""
+- **Message @AmznUsers For More Help -**"""
 
     await message.reply_text(help, quote=True)
 
@@ -193,7 +193,7 @@ Example: /add_forward_channel -100987654322
 Example: /remove_forward_channel -100987654322
 
 - /add_footer_channel - To add custom Footer Channel Username
-Example: /add_footer_channel @AmznUser
+Example: /add_footer_channel @AmznUsers
 
 - /remove_footer_channel - To remove custom Footer Channel Username
 
@@ -205,7 +205,7 @@ Example: /add_footer_channel @AmznUser
 
 - /report - To report any Issues or bugs to Admins
 
-- Message @AmznUser For More Help -"""
+- Message @AmznUsers For More Help -"""
 
     await message.reply_text(cmd, quote=True)
 
@@ -433,7 +433,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
         await message.reply(
             "📞__ Kindly send the Channel ID or Channel User from where to copy messages along with the command\n\n"
             "Add the bot to the channel and send /id to get the channel ID.\n"
-            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUser -> -10087654321`\n\n",
+            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUsers -> -10087654321`\n\n",
             quote=True
         )
     else:
@@ -542,7 +542,7 @@ async def addFooterChannel(bot: Client, message: Message):
     if len(message.command) == 1:
         await message.reply(
             "🪪__ Kindly send the Channel Username along with the command\n\n"
-            "\n**Eg:** `/add_footer_channel AmznUser`",
+            "\n**Eg:** `/add_footer_channel AmznUsers`",
             quote=True
         )
     else:
@@ -571,7 +571,7 @@ Example:
 /connect +84444444444
 
 
-🔊 Stay informed with the latest updates by subscribing to our channel: @AmznUser""",
+🔊 Stay informed with the latest updates by subscribing to our channel: @AmznUsers""",
             quote=True
         )
     else:
@@ -729,7 +729,7 @@ async def report(client: Client, message: Message):
             logging.info(
                 f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     await message.reply(
-        f"**Here is my maker's Telegram contact** : @AmznUser\n\n"
+        f"**Here is my maker's Telegram contact** : @AmznUsers\n\n"
         f"• __Report a bug...__\n"
         f"• __Suggest Something...__\n"
         f"• __Share Bot Idea...__\n"
@@ -809,7 +809,7 @@ async def amazon_links(bot: Client, message: Message):
             f"Found `{len(links)}` links.\n\n**📝 Files copy stats:**\n\n**Successfully:** `{success}/{len(links)}`\n**Errors:** `{error}/{len(links)}`\n**Replication:** `{duplicate}/{len(links)}`"
         )
 
-    footer_channel = db.get_custom_footer_channel(message.from_user.id) or 'AvishkarBots'
+    footer_channel = db.get_custom_footer_channel(message.from_user.id) or 'AmznUsers'
     oldMessage += f"\n\nShared by @{footer_channel.lstrip('@')}"
 
     stats = (
@@ -840,7 +840,7 @@ async def amazon_links(bot: Client, message: Message):
     if BOT_TYPE_PUBLIC is False:
         if db.get_forwardauthuser(chat_id) != "authorised":
             return await message.reply(
-                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @AmznUser To Get Access..😊**", 
+                "__You dont have access to use **Link Forwarding feature** of bot.😢__ \n\n **Contact 👉 @AmznUsers To Get Access..😊**", 
                 quote=True
             )
 
