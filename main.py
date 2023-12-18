@@ -1,4 +1,4 @@
-# @ShadowYt77 - Telegram
+# (c) @ | JorDan Gill
 
 import asyncio
 import os
