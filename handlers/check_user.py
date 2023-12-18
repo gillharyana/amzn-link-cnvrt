@@ -1,4 +1,4 @@
-# (c) @AmznUser | Jordan Gill
+# (c) @AmznUsers | Jordan Gill
 
 import datetime
 
