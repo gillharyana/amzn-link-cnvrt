@@ -1051,8 +1051,9 @@ async def start_userbots():
 
         try:
             await UserBot.start()
-        except:
-            
+            print("User Bot Started")
+        except Exception as e:
+            print("Not Started-->",e)
             db.remove_string_session(user["id"], string_session)
         
             try:
