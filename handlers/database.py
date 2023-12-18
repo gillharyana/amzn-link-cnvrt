@@ -1,4 +1,4 @@
-# (c) @AmznUsers | Jordan Gill
+# (c) @AmznUser | Jordan Gill
 
 import datetime
 from pymongo import MongoClient
