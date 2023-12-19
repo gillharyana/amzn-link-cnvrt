@@ -486,7 +486,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
             
             for autochannel in autopostchannels:
                 try:
-                    autochannel = autochannel
+                    autochannel = int(autochannel)
                 except Exception as e:
                     pass
                 print("Channel Id-->",channel.id)
@@ -495,10 +495,10 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                 if a == 10:
                     print("Inside User Part")
                     try:
-                        channel = await bot.get_chat(int(autochannel))
+                        channel = await bot.get_chat(autochannel)
                     except:
                         try:
-                            channel = await client.get_chat(int(autochannel))
+                            channel = await client.get_chat(autochannel)
                         except:
                             return await message.reply(f"Kindly add the User to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
                         return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
