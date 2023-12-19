@@ -227,6 +227,14 @@ async def opensettings(bot, cmd):
         ),
     )
 
+@Bot.on_message(filters.command('restart') & filters.private)
+async def restart_bot(bot: Client, message: Message):  
+    if message.from_user.id not in AUTH_USERS:
+        return
+    msg = await message.reply("Restarting")
+    os.execl(sys.executable, sys.executable, "main.py")
+    
+    
 @Bot.on_message(filters.command("stats") & filters.private)
 async def sts(c, m):
     if m.from_user.id not in AUTH_USERS:
