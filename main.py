@@ -1009,7 +1009,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
                                     try:
                                         print("trying to copy in bot chat")
                                         await m.copy(
-                                            channel.id,
+                                            channel.username,
                                             caption=oldMessage
                                         )
                                     except:
@@ -1019,7 +1019,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
                                         )
                                 else:
                                     print("in else send c")
-                                    await client.send_message(channel.id, oldMessage, disable_web_page_preview=True)
+                                    await client.send_message(channel.username, oldMessage, disable_web_page_preview=True)
                             else:
                                 if m.media:
                                     try:
