@@ -371,7 +371,7 @@ async def addChannelToDB(bot: Client, message: Message):
         await message.reply(
             "🪪__ Kindly send the Channel ID along with the command\n\n"
             "Add the bot to the channel and send /id to get the channel ID.\n"
-            "\n**Eg:** `/autopost -10012345678`\n\n",
+            "\n**Eg:** `/autopost -10012345678`\n\n\n\nNote: This Commad Sends The Post To Added \nAutopost Channel Ids Whenever Something Is Forwarded In Bot\nImportant : Bot Should Be Admin In Channel And Group Of The Given Ids",
             quote=True
         )
     else:
@@ -400,7 +400,7 @@ async def removeChannelToDB(bot: Client, message: Message):
         await message.reply(
             "🪪__ Kindly send the Channel ID along with the command\n\n"
             "\n**Eg:** `/remove_autopost -10012345678`\n\n"
-            "For get id send /id to get the channel ID in channel which you want to remove.\n",
+            "For get id send /id to get the channel ID in channel which you want to remove.\n\nSend The Id Of Channel From Which You Want To Remove Forwarding",
             quote=True
         )
     else:
@@ -438,7 +438,9 @@ async def addCopyChannelToDB(bot: Client, message: Message):
         await message.reply(
             "📞__ Kindly send the Channel ID or Channel User from where to copy messages along with the command\n\n"
             "Add the bot to the channel and send /id to get the channel ID.\n"
-            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUser -> -10087654321`\n\n",
+            "\n**Eg:** `/add_forward_channel labelname -10012345678 -> -10087654321` or `/add_forward_channel labelname AmznUser -> -10087654321`\n\n"
+            "\nThis Commad Send The New Messages From Other_Person_Channel -> Your_Own_Channel\n"
+            "\nNote : Your_Own_Channel Could Be A Group_ID (SuperGroup),Channel_ID , Bot (Username)",
             quote=True
         )
     else:
@@ -479,15 +481,15 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                     autochannel = autochannel
                 except Exception as e:
                     pass
-                try:
-                    channel = await bot.get_chat(autochannel)
-                except:
+                if channel.type != enums.ChatType.BOT:
                     try:
-                        channel = await client.get_chat(autochannel)
+                        channel = await bot.get_chat(int(autochanne)l)
                     except:
+                        try:
+                            channel = await client.get_chat(int(autochannel))
+                        except:
+                            return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
                         return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
-
-                    return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
 
                 # if channel.type != enums.ChatType.CHANNEL:
                 #     return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
@@ -526,7 +528,8 @@ async def removeCopyChannelFromDB(bot: Client, message: Message):
         await message.reply(
             "🪪__ Kindly send the Channel ID along with the command\n\n"
             "\n**Eg:** `/remove_forward_channel -10012345678`\n\n"
-            "For get id send /id to get the channel ID in channel which you want to remove.\n",
+            "For get id send /id to get the channel ID in channel which you want to remove.\n"
+            "Use /list_forward_channel And Use Souce Id To Remove ",
             quote=True
         )
     else:
