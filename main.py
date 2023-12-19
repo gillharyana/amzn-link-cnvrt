@@ -1,7 +1,7 @@
 # @ShadowYt77 - Telegram
 
 import asyncio
-import os
+import os ,sys
 import json
 import traceback
 import logging
