@@ -489,20 +489,25 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                     autochannel = autochannel
                 except Exception as e:
                     pass
-                if channel.type != enums.ChatType.BOT:
+                print("Channel Id-->",channel.id)
+                print("Channel Type-->",channel.type)
+                a = 10
+                if a == 10:
+                    print("Inside User Part")
                     try:
                         channel = await bot.get_chat(int(autochannel))
                     except:
                         try:
                             channel = await client.get_chat(int(autochannel))
                         except:
-                            return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
-                        # return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
+                            return await message.reply(f"Kindly add the User to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
+                        return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
 
                 # if channel.type != enums.ChatType.CHANNEL:
                 #     return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
 
                 if channel.type == enums.ChatType.BOT:
+                    print("Inside Bot Part")
                     print(type(autochannel))
                     try:
                         z = await client.resolve_peer(peer_id =autochannel)
