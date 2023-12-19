@@ -483,7 +483,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                     pass
                 if channel.type != enums.ChatType.BOT:
                     try:
-                        channel = await bot.get_chat(int(autochanne)l)
+                        channel = await bot.get_chat(int(autochannel))
                     except:
                         try:
                             channel = await client.get_chat(int(autochannel))
