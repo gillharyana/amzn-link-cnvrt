@@ -497,7 +497,7 @@ async def addCopyChannelToDB(bot: Client, message: Message):
                             channel = await client.get_chat(int(autochannel))
                         except:
                             return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
-                        return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
+                        # return await message.reply(f"Kindly add the bot to the channel ({autochannel}) with Admin Rights, before sending it to me.", quote=True)
 
                 # if channel.type != enums.ChatType.CHANNEL:
                 #     return await message.reply("The Chat ID should of a channel only.\n\nAdd the bot to the channel and send /id to get the channel ID.", quote=True)
