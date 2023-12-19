@@ -607,6 +607,7 @@ Example:
 
         try:
             await client.connect()
+            print("clint connected")
         except ConnectionError:
             await client.disconnect()
             await client.connect()
@@ -984,8 +985,10 @@ async def new_message(client: Client, m: Message, admin_id: int):
                                 channel = await Bot.get_chat(channelID["id"])
                             except:
                                 try:
+                                    print("checking if i can send through ckient")
                                     channel = await c.get_chat(channelID["id"])
                                 except:
+                                    print("cant send through c")
                                     db.remove_forward_channel(admin_id, channelID)
                                     return await Bot.send_message(
                                         admin_id,
@@ -1000,8 +1003,11 @@ async def new_message(client: Client, m: Message, admin_id: int):
                                     )
 
                             if channel.type == enums.ChatType.BOT:
+                                print(channel)
+                                print(channel.id)
                                 if m.media:
                                     try:
+                                        print("trying to copy in bot chat")
                                         await m.copy(
                                             channel.id,
                                             caption=oldMessage
@@ -1012,6 +1018,7 @@ async def new_message(client: Client, m: Message, admin_id: int):
                                             f"Received a Media Message in the channel, kindly add the **{(await c.get_me()).mention}** in the Forward Channel `{channelID['title']} ({channelID['id']})` to also copy the messages with Media."
                                         )
                                 else:
+                                    print("in else send c")
                                     await client.send_message(channel.id, oldMessage, disable_web_page_preview=True)
                             else:
                                 if m.media:
