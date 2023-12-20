@@ -1,4 +1,4 @@
-# @ShadowYt77 - Telegram
+# (c) @AmznUsers | Jordan Gill
 
 import asyncio
 import os ,sys
